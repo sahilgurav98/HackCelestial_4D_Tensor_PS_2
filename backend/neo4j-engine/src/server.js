@@ -43,7 +43,9 @@ app.use(
 app.use((err, req, res, next) => {
   console.error(err);
 
-  res.status(500).json({
+  const statusCode = ["INVALID_DELAY", "INVALID_RECOVERY_SELECTION"].includes(err.code) ? 400 :
+    err.code === "TRANSPORT_NOT_FOUND" ? 404 : 500;
+  res.status(statusCode).json({
     success: false,
     error: {
       code: "NEO4J_ENGINE_ERROR",

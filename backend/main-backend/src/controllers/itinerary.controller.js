@@ -18,7 +18,8 @@ async function createItinerary(req, res, next) {
     const itinerary =
       await itineraryService.createItinerary(
         tripId,
-        legs
+        legs,
+        req.user?._id
       );
 
     res.status(201).json({
@@ -34,7 +35,8 @@ async function getItinerary(req, res, next) {
   try {
     const itinerary =
       await itineraryService.getItinerary(
-        req.params.tripId
+        req.params.tripId,
+        req.user?._id
       );
 
     res.json({
@@ -50,7 +52,8 @@ async function getDependencies(req, res, next) {
   try {
     const data =
       await itineraryService.getDependencies(
-        req.params.tripId
+        req.params.tripId,
+        req.user?._id
       );
 
     res.json({
@@ -66,7 +69,8 @@ async function getStatus(req, res, next) {
   try {
     const itinerary =
       await itineraryService.getItinerary(
-        req.params.tripId
+        req.params.tripId,
+        req.user?._id
       );
 
     res.json({
@@ -85,7 +89,8 @@ async function checkDisruption(req, res, next) {
   try {
     const data =
       await itineraryService.checkDisruption(
-        req.params.tripId
+        req.params.tripId,
+        req.user?._id
       );
 
     res.json({
@@ -97,11 +102,41 @@ async function checkDisruption(req, res, next) {
   }
 }
 
+async function listItineraries(req, res, next) {
+  try {
+    const itineraries = await itineraryService.listItineraries(req.user?._id);
+    res.json({ success: true, data: itineraries });
+  } catch (error) {
+    next(error);
+  }
+}
+
+async function simulateDelay(req, res, next) {
+  try {
+    const { transportId, delayMinutes } = req.body;
+    if (!transportId || delayMinutes === undefined) {
+      const error = new Error("transportId and delayMinutes are required");
+      error.code = "INVALID_DELAY";
+      throw error;
+    }
+    const data = await itineraryService.simulateDelay(
+      req.params.tripId,
+      transportId,
+      delayMinutes,
+      req.user?._id
+    );
+    res.json({ success: true, data });
+  } catch (error) {
+    next(error);
+  }
+}
+
 async function getAffected(req, res, next) {
   try {
     const data =
       await itineraryService.getAffected(
-        req.params.tripId
+        req.params.tripId,
+        req.user?._id
       );
 
     res.json({
@@ -117,7 +152,8 @@ async function getRecovery(req, res, next) {
   try {
     const data =
       await itineraryService.getRecovery(
-        req.params.tripId
+        req.params.tripId,
+        req.user?._id
       );
 
     res.json({
@@ -148,7 +184,8 @@ async function selectRecovery(req, res, next) {
     const data =
       await itineraryService.selectRecovery(
         req.params.tripId,
-        transportId
+        transportId,
+        req.user?._id
       );
 
     res.json({
@@ -162,10 +199,12 @@ async function selectRecovery(req, res, next) {
 
 module.exports = {
   createItinerary,
+  listItineraries,
   getItinerary,
   getDependencies,
   getStatus,
   checkDisruption,
+  simulateDelay,
   getAffected,
   getRecovery,
   selectRecovery

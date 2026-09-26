@@ -89,11 +89,41 @@ async function getTrainHistory(trainId) {
   }
 }
 
+async function getTransports(filters = {}) {
+  try {
+    const response = await client.get("/api/transports", { params: filters });
+    return response.data.data;
+  } catch (error) {
+    throw handleServiceError(error);
+  }
+}
+
+async function getTransport(transportId) {
+  try {
+    const response = await client.get(`/api/transports/${transportId}`);
+    return response.data.data;
+  } catch (error) {
+    throw handleServiceError(error);
+  }
+}
+
+async function simulateDelay(transportId, delayMinutes) {
+  try {
+    const response = await client.post(`/api/simulator/${transportId}/delay`, { delayMinutes });
+    return response.data.data;
+  } catch (error) {
+    throw handleServiceError(error);
+  }
+}
+
 module.exports = {
   getFlights,
   getFlight,
   getTrains,
   getTrain,
   getFlightHistory,
-  getTrainHistory
+  getTrainHistory,
+  getTransports,
+  getTransport,
+  simulateDelay
 };

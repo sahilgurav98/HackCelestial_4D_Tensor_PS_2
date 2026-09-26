@@ -15,6 +15,12 @@ const itineraryRoutes =
 const predictionRoutes =
   require("./routes/prediction.routes");
 
+const authRoutes =
+  require("./routes/auth.routes");
+
+const { optionalAuth } =
+  require("./middleware/auth");
+
 const notFound =
   require("./middleware/notFound");
 
@@ -22,6 +28,13 @@ const errorHandler =
   require("./middleware/errorHandler");
 
 const app = express();
+
+app.use((req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("X-Frame-Options", "DENY");
+  res.setHeader("Referrer-Policy", "same-origin");
+  next();
+});
 
 app.use(
   cors({
@@ -45,7 +58,13 @@ app.use(
 );
 
 app.use(
+  "/api/auth",
+  authRoutes
+);
+
+app.use(
   "/api/itineraries",
+  optionalAuth,
   itineraryRoutes
 );
 

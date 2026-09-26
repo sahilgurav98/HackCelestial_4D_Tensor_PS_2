@@ -11,6 +11,11 @@ router.post(
 );
 
 router.get(
+  "/",
+  controller.listItineraries
+);
+
+router.get(
   "/:tripId",
   controller.getItinerary
 );
@@ -28,6 +33,11 @@ router.get(
 router.post(
   "/:tripId/check-disruption",
   controller.checkDisruption
+);
+
+router.post(
+  "/:tripId/simulate-delay",
+  controller.simulateDelay
 );
 
 router.get(

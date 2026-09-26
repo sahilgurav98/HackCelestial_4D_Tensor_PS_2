@@ -81,11 +81,29 @@ GET /api/itineraries/:tripId/status
 
 POST /api/itineraries/:tripId/check-disruption
 
+POST /api/itineraries/:tripId/simulate-delay
+
 GET /api/itineraries/:tripId/affected
 
 GET /api/itineraries/:tripId/recovery
 
 POST /api/itineraries/:tripId/recovery/select
+
+The standalone demo can be bootstrapped with the canonical `TG001` itinerary
+using `FL001` and `TR001` even before the Data Provider is available. Provider
+responses remain preferred when the provider is running.
+
+## Demo flow
+
+```powershell
+curl.exe -X POST http://localhost:5000/api/itineraries -H "Content-Type: application/json" -d '{"tripId":"TG001","legs":[{"transportId":"FL001","type":"FLIGHT"},{"transportId":"TR001","type":"TRAIN"}]}'
+curl.exe http://localhost:5000/api/itineraries/TG001/dependencies
+curl.exe -X POST http://localhost:5000/api/itineraries/TG001/simulate-delay -H "Content-Type: application/json" -d '{"transportId":"FL001","delayMinutes":100}'
+curl.exe -X POST http://localhost:5000/api/itineraries/TG001/check-disruption
+curl.exe http://localhost:5000/api/itineraries/TG001/affected
+curl.exe http://localhost:5000/api/itineraries/TG001/recovery
+curl.exe -X POST http://localhost:5000/api/itineraries/TG001/recovery/select -H "Content-Type: application/json" -d '{"transportId":"TR002"}'
+```
 
 ### ML
 

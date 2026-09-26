@@ -25,7 +25,10 @@ const env = {
     process.env.FRONTEND_URL || "http://localhost:5173",
 
   serviceTimeoutMs:
-    Number(process.env.SERVICE_TIMEOUT_MS) || 5000
+    Number(process.env.SERVICE_TIMEOUT_MS) || 5000,
+
+  demoMode:
+    process.env.DEMO_MODE !== "false"
 };
 
 module.exports = env;

@@ -4,9 +4,41 @@ const RecoveryPlan = require("../models/RecoveryPlan");
 
 const dataProvider = require("./dataProvider.service");
 const neo4j = require("./neo4j.service");
+const { getDemoTransport } = require("./demoData.service");
+const env = require("../config/env");
 
-async function createItinerary(tripId, legs) {
-  const existing = await Itinerary.findOne({ tripId });
+async function resolveTransport(leg) {
+  const demoTransport = getDemoTransport(leg.transportId);
+  if (env.demoMode && demoTransport) {
+    return demoTransport;
+  }
+
+  const getter = leg.type === "FLIGHT"
+    ? dataProvider.getFlight
+    : leg.type === "TRAIN"
+      ? dataProvider.getTrain
+      : null;
+
+  if (!getter) {
+    const error = new Error(`Unsupported transport type: ${leg.type}`);
+    error.code = "INVALID_TRANSPORT_TYPE";
+    throw error;
+  }
+
+  try {
+    return await getter(leg.transportId);
+  } catch (error) {
+    if (demoTransport) return demoTransport;
+    throw error;
+  }
+}
+
+function ownerFilter(userId) {
+  return userId ? { userId } : { userId: null };
+}
+
+async function createItinerary(tripId, legs, userId = null) {
+  const existing = await Itinerary.findOne({ tripId, ...ownerFilter(userId) });
 
   if (existing) {
     const error = new Error(
@@ -18,37 +50,27 @@ async function createItinerary(tripId, legs) {
     throw error;
   }
 
-  // Validate all transports before creating itinerary.
-  for (const leg of legs) {
-    if (leg.type === "FLIGHT") {
-      await dataProvider.getFlight(leg.transportId);
-    } else if (leg.type === "TRAIN") {
-      await dataProvider.getTrain(leg.transportId);
-    } else {
-      const error = new Error(
-        `Unsupported transport type: ${leg.type}`
-      );
-
-      error.code = "INVALID_TRANSPORT_TYPE";
-
-      throw error;
-    }
-  }
+  const transports = await Promise.all(legs.map(resolveTransport));
+  const graphLegs = legs.map((leg, index) => ({
+    transport: transports[index],
+    minimumTransferMinutes: leg.minimumTransferMinutes || 30
+  }));
 
   const itinerary = await Itinerary.create({
     tripId,
     legs,
+    userId: userId || null,
     status: "ACTIVE"
   });
 
   try {
     await neo4j.registerJourney({
       tripId,
-      legs
+    legs: graphLegs
     });
   } catch (error) {
     // Roll back MongoDB itinerary if Neo4j registration fails.
-    await Itinerary.deleteOne({ tripId });
+    await Itinerary.deleteOne({ tripId, ...ownerFilter(userId) });
 
     error.code = "NEO4J_REGISTRATION_FAILED";
 
@@ -58,8 +80,8 @@ async function createItinerary(tripId, legs) {
   return itinerary;
 }
 
-async function getItinerary(tripId) {
-  const itinerary = await Itinerary.findOne({ tripId }).lean();
+async function getItinerary(tripId, userId = null) {
+  const itinerary = await Itinerary.findOne({ tripId, ...ownerFilter(userId) }).lean();
 
   if (!itinerary) {
     const error = new Error(
@@ -74,20 +96,20 @@ async function getItinerary(tripId) {
   return itinerary;
 }
 
-async function getDependencies(tripId) {
-  await getItinerary(tripId);
+async function getDependencies(tripId, userId = null) {
+  await getItinerary(tripId, userId);
 
   return neo4j.getDependencies(tripId);
 }
 
-async function checkDisruption(tripId) {
-  const itinerary = await getItinerary(tripId);
+async function checkDisruption(tripId, userId = null) {
+  const itinerary = await getItinerary(tripId, userId);
 
   const affected = await neo4j.getAffected(tripId);
 
   const isAffected =
     affected?.affected === true ||
-    affected?.connections?.some(
+    affected?.affectedConnections?.some(
       (connection) =>
         connection.status === "BROKEN" ||
         connection.status === "AT_RISK"
@@ -97,7 +119,7 @@ async function checkDisruption(tripId) {
 
   if (isAffected) {
     const hasBrokenConnection =
-      affected.connections?.some(
+      affected.affectedConnections?.some(
         (connection) =>
           connection.status === "BROKEN"
       );
@@ -108,7 +130,7 @@ async function checkDisruption(tripId) {
   }
 
   await Itinerary.updateOne(
-    { tripId },
+    { tripId, ...ownerFilter(userId) },
     {
       $set: {
         status: newStatus
@@ -116,13 +138,14 @@ async function checkDisruption(tripId) {
     }
   );
 
-  if (isAffected && affected.connections) {
-    for (const connection of affected.connections) {
+  if (isAffected && affected.affectedConnections) {
+    for (const connection of affected.affectedConnections) {
       if (
         connection.status === "BROKEN" ||
         connection.status === "AT_RISK"
       ) {
         await DisruptionEvent.create({
+          userId: userId || null,
           tripId,
           transportId: connection.from,
           eventType:
@@ -145,20 +168,44 @@ async function checkDisruption(tripId) {
     status: newStatus,
     affected: isAffected,
     details: affected,
-    itinerary
+    itinerary: {
+      ...itinerary,
+      status: newStatus
+    }
   };
 }
 
-async function getAffected(tripId) {
-  await getItinerary(tripId);
+async function listItineraries(userId = null) {
+  return Itinerary.find(ownerFilter(userId)).sort({ updatedAt: -1 }).lean();
+}
+
+async function getAffected(tripId, userId = null) {
+  await getItinerary(tripId, userId);
 
   return neo4j.getAffected(tripId);
 }
 
-async function getRecovery(tripId) {
-  await getItinerary(tripId);
+async function getRecovery(tripId, userId = null) {
+  await getItinerary(tripId, userId);
 
-  const recovery = await neo4j.getRecovery(tripId);
+  let candidates = [];
+  try {
+    const affected = await neo4j.getAffected(tripId);
+    const broken = affected.affectedConnections?.[0];
+    if (broken) {
+      const [from, to] = await Promise.all([
+        dataProvider.getTransport(broken.from),
+        dataProvider.getTransport(broken.to)
+      ]);
+      candidates = await dataProvider.getTransports({
+        origin: from.destination?.code,
+        destination: to.destination?.code
+      });
+    }
+  } catch (error) {
+    if (!env.demoMode) throw error;
+  }
+  const recovery = await neo4j.getRecovery(tripId, candidates);
 
   if (
     !recovery ||
@@ -171,11 +218,13 @@ async function getRecovery(tripId) {
     await RecoveryPlan.findOneAndUpdate(
       {
         tripId,
+        ...ownerFilter(userId),
         originalTransport:
           recovery.affectedTransport
       },
       {
         $set: {
+          userId: userId || null,
           options: recovery.options || [],
           recommendedOption:
             recovery.recommendedOption || null
@@ -193,51 +242,48 @@ async function getRecovery(tripId) {
   };
 }
 
-async function selectRecovery(tripId, transportId) {
-  const itinerary = await getItinerary(tripId);
+async function selectRecovery(tripId, transportId, userId = null) {
+  const itinerary = await getItinerary(tripId, userId);
+  let candidates = [];
+  try {
+    const affected = await neo4j.getAffected(tripId);
+    const broken = affected.affectedConnections?.[0];
+    if (broken) {
+      const [from, to] = await Promise.all([
+        dataProvider.getTransport(broken.from),
+        dataProvider.getTransport(broken.to)
+      ]);
+      candidates = await dataProvider.getTransports({
+        origin: from.destination?.code,
+        destination: to.destination?.code
+      });
+    }
+  } catch (error) {
+    if (!env.demoMode) throw error;
+  }
+  const validation = await neo4j.selectRecovery(tripId, transportId, candidates);
+  const recovery = await neo4j.getRecovery(tripId, candidates);
+  const selectedOption = validation.selectedOption;
+  const originalTransport = recovery.affectedTransport ||
+    recovery.brokenConnections?.[0]?.to;
 
-  const recoveryPlan =
-    await RecoveryPlan.findOne({ tripId }).sort({
-      createdAt: -1
-    });
-
-  if (!recoveryPlan) {
-    const error = new Error(
-      "No recovery plan exists for this itinerary"
-    );
-
-    error.code = "RECOVERY_PLAN_NOT_FOUND";
-
+  if (!originalTransport) {
+    const error = new Error("No broken connection exists for this itinerary");
+    error.code = "INVALID_RECOVERY_SELECTION";
     throw error;
   }
 
-  const selectedOption =
-    recoveryPlan.options.find(
-      (option) =>
-        option.transportId === transportId ||
-        option.id === transportId
-    );
-
-  if (!selectedOption) {
-    const error = new Error(
-      `Recovery option ${transportId} was not found`
-    );
-
-    error.code = "RECOVERY_OPTION_NOT_FOUND";
-
-    throw error;
-  }
-
-  recoveryPlan.selectedOption = selectedOption;
-
-  await recoveryPlan.save();
+  await RecoveryPlan.findOneAndUpdate(
+    { tripId, originalTransport, ...ownerFilter(userId) },
+    { $set: { userId: userId || null, options: recovery.options || recovery.alternatives || [], selectedOption } },
+    { upsert: true, new: true }
+  );
 
   // Replace affected transport with selected recovery transport.
   const updatedLegs = itinerary.legs.map(
     (leg) => {
       if (
-        leg.transportId ===
-        recoveryPlan.originalTransport
+        leg.transportId === originalTransport
       ) {
         return {
           transportId:
@@ -253,7 +299,7 @@ async function selectRecovery(tripId, transportId) {
   );
 
   await Itinerary.updateOne(
-    { tripId },
+    { tripId, ...ownerFilter(userId) },
     {
       $set: {
         legs: updatedLegs,
@@ -275,12 +321,30 @@ async function selectRecovery(tripId, transportId) {
   };
 }
 
+async function simulateDelay(tripId, transportId, delayMinutes, userId = null) {
+  const numericDelay = Number(delayMinutes);
+  if (!Number.isFinite(numericDelay) || numericDelay < 0) {
+    const error = new Error("delayMinutes must be a non-negative number");
+    error.code = "INVALID_DELAY";
+    throw error;
+  }
+  await getItinerary(tripId, userId);
+  try {
+    await dataProvider.simulateDelay(transportId, numericDelay);
+  } catch (error) {
+    if (!env.demoMode) throw error;
+  }
+  return neo4j.simulateDelay(tripId, transportId, numericDelay);
+}
+
 module.exports = {
   createItinerary,
+  listItineraries,
   getItinerary,
   getDependencies,
   checkDisruption,
   getAffected,
   getRecovery,
+  simulateDelay,
   selectRecovery
 };

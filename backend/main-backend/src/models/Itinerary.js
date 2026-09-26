@@ -20,11 +20,16 @@ const legSchema = new mongoose.Schema(
 
 const itinerarySchema = new mongoose.Schema(
   {
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      default: null,
+      index: true
+    },
+
     tripId: {
       type: String,
-      required: true,
-      unique: true,
-      index: true
+      required: true
     },
 
     legs: {
@@ -65,6 +70,15 @@ const itinerarySchema = new mongoose.Schema(
   },
   {
     timestamps: true
+  }
+);
+
+// A trip id is unique inside a user's workspace, not across all users.
+itinerarySchema.index(
+  { userId: 1, tripId: 1 },
+  {
+    unique: true,
+    partialFilterExpression: { userId: { $type: "objectId" } }
   }
 );
 

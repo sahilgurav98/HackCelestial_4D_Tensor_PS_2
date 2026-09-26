@@ -2,6 +2,13 @@ const mongoose = require("mongoose");
 
 const disruptionEventSchema = new mongoose.Schema(
   {
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      default: null,
+      index: true
+    },
+
     tripId: {
       type: String,
       required: true,

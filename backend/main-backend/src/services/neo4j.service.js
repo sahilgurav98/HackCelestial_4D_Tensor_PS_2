@@ -58,11 +58,11 @@ async function getAffected(tripId) {
   }
 }
 
-async function getRecovery(tripId) {
+async function getRecovery(tripId, candidates = []) {
   try {
-    const response = await client.get(
-      `/journeys/${tripId}/recovery`
-    );
+    const response = await client.get(`/journeys/${tripId}/recovery`, {
+      params: candidates.length ? { candidates: JSON.stringify(candidates) } : undefined
+    });
 
     return response.data.data;
   } catch (error) {
@@ -70,9 +70,37 @@ async function getRecovery(tripId) {
   }
 }
 
+async function simulateDelay(tripId, transportId, delayMinutes) {
+  try {
+    const response = await client.post(
+      `/journeys/${tripId}/simulate-delay`,
+      { transportId, delayMinutes }
+    );
+    return response.data.data;
+  } catch (error) {
+    throw handleServiceError(error);
+  }
+}
+
+async function selectRecovery(tripId, transportId, candidates = []) {
+  try {
+    const response = await client.post(
+      `/journeys/${tripId}/recovery/select`,
+      { transportId, candidates }
+    );
+    return response.data.data;
+  } catch (error) {
+    const normalized = handleServiceError(error);
+    normalized.code = error.response?.data?.error?.code || "NEO4J_ENGINE_UNAVAILABLE";
+    throw normalized;
+  }
+}
+
 module.exports = {
   registerJourney,
   getDependencies,
   getAffected,
-  getRecovery
+  getRecovery,
+  simulateDelay,
+  selectRecovery
 };

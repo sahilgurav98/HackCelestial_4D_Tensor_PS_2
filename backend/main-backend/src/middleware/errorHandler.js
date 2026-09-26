@@ -12,6 +12,12 @@ function errorHandler(err, req, res, next) {
   let message =
     err.message || "Internal server error";
 
+  if (err.code === 11000) {
+    code = "ITINERARY_EXISTS";
+    statusCode = 409;
+    message = "An itinerary with this trip ID already exists in your workspace";
+  }
+
   if (code === "ITINERARY_NOT_FOUND") {
     statusCode = 404;
   }
@@ -34,6 +40,18 @@ function errorHandler(err, req, res, next) {
 
   if (code === "RECOVERY_OPTION_NOT_FOUND") {
     statusCode = 404;
+  }
+
+  if (code === "INVALID_RECOVERY_SELECTION" || code === "INVALID_DELAY" || code === "INVALID_SIGNUP") {
+    statusCode = 400;
+  }
+
+  if (code === "AUTH_REQUIRED" || code === "INVALID_CREDENTIALS") {
+    statusCode = 401;
+  }
+
+  if (code === "EMAIL_IN_USE") {
+    statusCode = 409;
   }
 
   if (code === "ITINERARY_EXISTS") {
