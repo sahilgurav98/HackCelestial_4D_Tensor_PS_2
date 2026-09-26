@@ -68,6 +68,11 @@ async function registerJourney(tripId, legs) {
       }
     );
 
+    await session.run(
+      `MATCH (t:Trip {id: $tripId})-[r:HAS_LEG]->() DELETE r`,
+      { tripId }
+    );
+
     // ------------------------------------------------
     // 2. Create Transport nodes
     // ------------------------------------------------
@@ -237,12 +242,13 @@ async function registerJourney(tripId, legs) {
         MATCH (a:Transport {id: $fromId})
         MATCH (b:Transport {id: $toId})
 
-        MERGE (a)-[c:CONNECTS_TO]->(b)
+        MERGE (a)-[c:CONNECTS_TO {tripId: $tripId}]->(b)
 
         SET c.minimumTransferMinutes =
           $minimumTransferMinutes
         `,
         {
+          tripId,
           fromId: current.transport.id,
           toId: next.transport.id,
 
@@ -272,7 +278,7 @@ async function getDependencies(tripId) {
         (t:Trip {id: $tripId})
         -[:HAS_LEG]->
         (a:Transport)
-        -[c:CONNECTS_TO]->
+        -[c:CONNECTS_TO {tripId: $tripId}]->
         (b:Transport)
 
       RETURN

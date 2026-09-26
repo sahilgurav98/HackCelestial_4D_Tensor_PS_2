@@ -37,6 +37,10 @@ function ownerFilter(userId) {
   return userId ? { userId } : { userId: null };
 }
 
+function graphJourneyId(tripId, userId) {
+  return `${userId ? userId.toString() : "public"}:${tripId}`;
+}
+
 async function createItinerary(tripId, legs, userId = null) {
   const existing = await Itinerary.findOne({ tripId, ...ownerFilter(userId) });
 
@@ -65,7 +69,7 @@ async function createItinerary(tripId, legs, userId = null) {
 
   try {
     await neo4j.registerJourney({
-      tripId,
+      tripId: graphJourneyId(tripId, userId),
     legs: graphLegs
     });
   } catch (error) {
@@ -99,13 +103,14 @@ async function getItinerary(tripId, userId = null) {
 async function getDependencies(tripId, userId = null) {
   await getItinerary(tripId, userId);
 
-  return neo4j.getDependencies(tripId);
+  return neo4j.getDependencies(graphJourneyId(tripId, userId));
 }
 
 async function checkDisruption(tripId, userId = null) {
   const itinerary = await getItinerary(tripId, userId);
 
-  const affected = await neo4j.getAffected(tripId);
+  const graphId = graphJourneyId(tripId, userId);
+  const affected = await neo4j.getAffected(graphId);
 
   const isAffected =
     affected?.affected === true ||
@@ -182,7 +187,18 @@ async function listItineraries(userId = null) {
 async function getAffected(tripId, userId = null) {
   await getItinerary(tripId, userId);
 
-  return neo4j.getAffected(tripId);
+  return neo4j.getAffected(graphJourneyId(tripId, userId));
+}
+
+async function monitorItinerary(tripId, userId = null) {
+  const itinerary = await getItinerary(tripId, userId);
+  const graphId = graphJourneyId(tripId, userId);
+  const transports = await Promise.all(itinerary.legs.map((leg) => dataProvider.getLiveTransport(leg.transportId)));
+  await Promise.all(transports.map((item) => neo4j.simulateDelay(graphId, item.id, item.delayMinutes)));
+  const disruption = await checkDisruption(tripId, userId);
+  const dependencies = await neo4j.getDependencies(graphId);
+  const recovery = disruption.status === "DISRUPTED" ? await getRecovery(tripId, userId) : null;
+  return { tripId, checkedAt: new Date().toISOString(), transports, dependencies, disruption, recovery };
 }
 
 async function getRecovery(tripId, userId = null) {
@@ -190,7 +206,7 @@ async function getRecovery(tripId, userId = null) {
 
   let candidates = [];
   try {
-    const affected = await neo4j.getAffected(tripId);
+    const affected = await neo4j.getAffected(graphJourneyId(tripId, userId));
     const broken = affected.affectedConnections?.[0];
     if (broken) {
       const [from, to] = await Promise.all([
@@ -205,7 +221,7 @@ async function getRecovery(tripId, userId = null) {
   } catch (error) {
     if (!env.demoMode) throw error;
   }
-  const recovery = await neo4j.getRecovery(tripId, candidates);
+  const recovery = await neo4j.getRecovery(graphJourneyId(tripId, userId), candidates);
 
   if (
     !recovery ||
@@ -246,7 +262,7 @@ async function selectRecovery(tripId, transportId, userId = null) {
   const itinerary = await getItinerary(tripId, userId);
   let candidates = [];
   try {
-    const affected = await neo4j.getAffected(tripId);
+    const affected = await neo4j.getAffected(graphJourneyId(tripId, userId));
     const broken = affected.affectedConnections?.[0];
     if (broken) {
       const [from, to] = await Promise.all([
@@ -261,8 +277,9 @@ async function selectRecovery(tripId, transportId, userId = null) {
   } catch (error) {
     if (!env.demoMode) throw error;
   }
-  const validation = await neo4j.selectRecovery(tripId, transportId, candidates);
-  const recovery = await neo4j.getRecovery(tripId, candidates);
+  const graphId = graphJourneyId(tripId, userId);
+  const validation = await neo4j.selectRecovery(graphId, transportId, candidates);
+  const recovery = await neo4j.getRecovery(graphId, candidates);
   const selectedOption = validation.selectedOption;
   const originalTransport = recovery.affectedTransport ||
     recovery.brokenConnections?.[0]?.to;
@@ -313,6 +330,12 @@ async function selectRecovery(tripId, transportId, userId = null) {
     }
   );
 
+  const refreshedTransports = await Promise.all(updatedLegs.map(resolveTransport));
+  await neo4j.registerJourney({
+    tripId: graphId,
+    legs: updatedLegs.map((leg, index) => ({ transport: refreshedTransports[index], minimumTransferMinutes: leg.minimumTransferMinutes || 30 }))
+  });
+
   return {
     tripId,
     status: "RECOVERED",
@@ -334,7 +357,7 @@ async function simulateDelay(tripId, transportId, delayMinutes, userId = null) {
   } catch (error) {
     if (!env.demoMode) throw error;
   }
-  return neo4j.simulateDelay(tripId, transportId, numericDelay);
+  return neo4j.simulateDelay(graphJourneyId(tripId, userId), transportId, numericDelay);
 }
 
 module.exports = {
@@ -344,6 +367,7 @@ module.exports = {
   getDependencies,
   checkDisruption,
   getAffected,
+  monitorItinerary,
   getRecovery,
   simulateDelay,
   selectRecovery

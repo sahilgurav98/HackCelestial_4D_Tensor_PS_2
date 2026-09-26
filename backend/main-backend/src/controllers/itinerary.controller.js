@@ -102,6 +102,15 @@ async function checkDisruption(req, res, next) {
   }
 }
 
+async function monitorItinerary(req, res, next) {
+  try {
+    const data = await itineraryService.monitorItinerary(req.params.tripId, req.user?._id);
+    res.json({ success: true, data });
+  } catch (error) {
+    next(error);
+  }
+}
+
 async function listItineraries(req, res, next) {
   try {
     const itineraries = await itineraryService.listItineraries(req.user?._id);
@@ -204,6 +213,7 @@ module.exports = {
   getDependencies,
   getStatus,
   checkDisruption,
+  monitorItinerary,
   simulateDelay,
   getAffected,
   getRecovery,

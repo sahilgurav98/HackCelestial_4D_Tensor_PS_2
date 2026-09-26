@@ -27,6 +27,7 @@ export const listItineraries = () => request("/itineraries");
 export const createItinerary = (tripId, legs) => request("/itineraries", { method: "POST", body: JSON.stringify({ tripId, legs }) });
 export const getDependencies = (tripId) => request(`/itineraries/${tripId}/dependencies`);
 export const checkDisruption = (tripId) => request(`/itineraries/${tripId}/check-disruption`, { method: "POST" });
+export const monitorItinerary = (tripId) => request(`/itineraries/${tripId}/monitor`, { method: "POST" });
 export const getAffected = (tripId) => request(`/itineraries/${tripId}/affected`);
 export const getRecovery = (tripId) => request(`/itineraries/${tripId}/recovery`);
 export const simulateDelay = (tripId, transportId, delayMinutes) => request(`/itineraries/${tripId}/simulate-delay`, { method: "POST", body: JSON.stringify({ transportId, delayMinutes }) });

@@ -36,6 +36,11 @@ router.post(
 );
 
 router.post(
+  "/:tripId/monitor",
+  controller.monitorItinerary
+);
+
+router.post(
   "/:tripId/simulate-delay",
   controller.simulateDelay
 );

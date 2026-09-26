@@ -107,6 +107,24 @@ async function getTransport(transportId) {
   }
 }
 
+async function getLiveTransport(transportId) {
+  try {
+    const response = await client.get(`/api/transports/${transportId}/live`);
+    return response.data.data;
+  } catch (error) {
+    throw handleServiceError(error);
+  }
+}
+
+async function advanceSimulation() {
+  try {
+    const response = await client.post("/api/simulator/tick");
+    return response.data.data;
+  } catch (error) {
+    throw handleServiceError(error);
+  }
+}
+
 async function simulateDelay(transportId, delayMinutes) {
   try {
     const response = await client.post(`/api/simulator/${transportId}/delay`, { delayMinutes });
@@ -125,5 +143,7 @@ module.exports = {
   getTrainHistory,
   getTransports,
   getTransport,
+  getLiveTransport,
+  advanceSimulation,
   simulateDelay
 };
