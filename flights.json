@@ -1,0 +1,2102 @@
+[
+  {
+    "id": "FL001",
+    "type": "FLIGHT",
+    "operator": "Demo Airways",
+    "serviceNumber": "TG101",
+    "origin": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "destination": {
+      "code": "DEL",
+      "name": "Delhi",
+      "city": "Delhi"
+    },
+    "scheduledDeparture": "2026-10-10T06:00:00+05:30",
+    "scheduledArrival": "2026-10-10T08:00:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1150,
+    "durationMinutes": 120,
+    "metadata": {
+      "aircraftType": "A320",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 6,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "LOW",
+      "airportCongestionRisk": "MEDIUM",
+      "historicalAverageDelayMinutes": 8,
+      "historicalCancellationRate": 0.01
+    }
+  },
+  {
+    "id": "FL002",
+    "type": "FLIGHT",
+    "operator": "SkyDemo",
+    "serviceNumber": "TG102",
+    "origin": {
+      "code": "DEL",
+      "name": "Delhi",
+      "city": "Delhi"
+    },
+    "destination": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "scheduledDeparture": "2026-10-10T07:15:00+05:30",
+    "scheduledArrival": "2026-10-10T09:20:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1150,
+    "durationMinutes": 125,
+    "metadata": {
+      "aircraftType": "A321",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 7,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "HIGH",
+      "airportCongestionRisk": "HIGH",
+      "historicalAverageDelayMinutes": 12,
+      "historicalCancellationRate": 0.02
+    }
+  },
+  {
+    "id": "FL003",
+    "type": "FLIGHT",
+    "operator": "TravelGuard Air",
+    "serviceNumber": "TG103",
+    "origin": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "destination": {
+      "code": "BLR",
+      "name": "Bengaluru",
+      "city": "Bengaluru"
+    },
+    "scheduledDeparture": "2026-10-10T08:30:00+05:30",
+    "scheduledArrival": "2026-10-10T10:15:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 845,
+    "durationMinutes": 105,
+    "metadata": {
+      "aircraftType": "B737-800",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 8,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "MEDIUM",
+      "airportCongestionRisk": "LOW",
+      "historicalAverageDelayMinutes": 18,
+      "historicalCancellationRate": 0.03
+    }
+  },
+  {
+    "id": "FL004",
+    "type": "FLIGHT",
+    "operator": "Demo Airways",
+    "serviceNumber": "TG104",
+    "origin": {
+      "code": "BLR",
+      "name": "Bengaluru",
+      "city": "Bengaluru"
+    },
+    "destination": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "scheduledDeparture": "2026-10-10T09:45:00+05:30",
+    "scheduledArrival": "2026-10-10T11:35:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 845,
+    "durationMinutes": 110,
+    "metadata": {
+      "aircraftType": "A350",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 9,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "LOW",
+      "airportCongestionRisk": "MEDIUM",
+      "historicalAverageDelayMinutes": 24,
+      "historicalCancellationRate": 0.04
+    }
+  },
+  {
+    "id": "FL005",
+    "type": "FLIGHT",
+    "operator": "SkyDemo",
+    "serviceNumber": "TG105",
+    "origin": {
+      "code": "DEL",
+      "name": "Delhi",
+      "city": "Delhi"
+    },
+    "destination": {
+      "code": "BLR",
+      "name": "Bengaluru",
+      "city": "Bengaluru"
+    },
+    "scheduledDeparture": "2026-10-10T10:00:00+05:30",
+    "scheduledArrival": "2026-10-10T12:45:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1740,
+    "durationMinutes": 165,
+    "metadata": {
+      "aircraftType": "A320",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 10,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "HIGH",
+      "airportCongestionRisk": "HIGH",
+      "historicalAverageDelayMinutes": 31,
+      "historicalCancellationRate": 0.01
+    }
+  },
+  {
+    "id": "FL006",
+    "type": "FLIGHT",
+    "operator": "TravelGuard Air",
+    "serviceNumber": "TG106",
+    "origin": {
+      "code": "BLR",
+      "name": "Bengaluru",
+      "city": "Bengaluru"
+    },
+    "destination": {
+      "code": "DEL",
+      "name": "Delhi",
+      "city": "Delhi"
+    },
+    "scheduledDeparture": "2026-10-10T11:15:00+05:30",
+    "scheduledArrival": "2026-10-10T14:05:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1740,
+    "durationMinutes": 170,
+    "metadata": {
+      "aircraftType": "A321",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 11,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "MEDIUM",
+      "airportCongestionRisk": "LOW",
+      "historicalAverageDelayMinutes": 15,
+      "historicalCancellationRate": 0.02
+    }
+  },
+  {
+    "id": "FL007",
+    "type": "FLIGHT",
+    "operator": "Demo Airways",
+    "serviceNumber": "TG107",
+    "origin": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "destination": {
+      "code": "HYD",
+      "name": "Hyderabad",
+      "city": "Hyderabad"
+    },
+    "scheduledDeparture": "2026-10-10T13:30:00+05:30",
+    "scheduledArrival": "2026-10-10T15:05:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 620,
+    "durationMinutes": 95,
+    "metadata": {
+      "aircraftType": "B737-800",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 13,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "LOW",
+      "airportCongestionRisk": "MEDIUM",
+      "historicalAverageDelayMinutes": 20,
+      "historicalCancellationRate": 0.03
+    }
+  },
+  {
+    "id": "FL008",
+    "type": "FLIGHT",
+    "operator": "SkyDemo",
+    "serviceNumber": "TG108",
+    "origin": {
+      "code": "HYD",
+      "name": "Hyderabad",
+      "city": "Hyderabad"
+    },
+    "destination": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "scheduledDeparture": "2026-10-10T15:45:00+05:30",
+    "scheduledArrival": "2026-10-10T17:25:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 620,
+    "durationMinutes": 100,
+    "metadata": {
+      "aircraftType": "A350",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 15,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "HIGH",
+      "airportCongestionRisk": "HIGH",
+      "historicalAverageDelayMinutes": 8,
+      "historicalCancellationRate": 0.04
+    }
+  },
+  {
+    "id": "FL009",
+    "type": "FLIGHT",
+    "operator": "TravelGuard Air",
+    "serviceNumber": "TG109",
+    "origin": {
+      "code": "DEL",
+      "name": "Delhi",
+      "city": "Delhi"
+    },
+    "destination": {
+      "code": "HYD",
+      "name": "Hyderabad",
+      "city": "Hyderabad"
+    },
+    "scheduledDeparture": "2026-10-10T17:00:00+05:30",
+    "scheduledArrival": "2026-10-10T19:10:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1250,
+    "durationMinutes": 130,
+    "metadata": {
+      "aircraftType": "A320",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 17,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "MEDIUM",
+      "airportCongestionRisk": "LOW",
+      "historicalAverageDelayMinutes": 12,
+      "historicalCancellationRate": 0.01
+    }
+  },
+  {
+    "id": "FL010",
+    "type": "FLIGHT",
+    "operator": "Demo Airways",
+    "serviceNumber": "TG110",
+    "origin": {
+      "code": "HYD",
+      "name": "Hyderabad",
+      "city": "Hyderabad"
+    },
+    "destination": {
+      "code": "DEL",
+      "name": "Delhi",
+      "city": "Delhi"
+    },
+    "scheduledDeparture": "2026-10-10T19:15:00+05:30",
+    "scheduledArrival": "2026-10-10T21:30:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1250,
+    "durationMinutes": 135,
+    "metadata": {
+      "aircraftType": "A321",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 19,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "LOW",
+      "airportCongestionRisk": "MEDIUM",
+      "historicalAverageDelayMinutes": 18,
+      "historicalCancellationRate": 0.02
+    }
+  },
+  {
+    "id": "FL011",
+    "type": "FLIGHT",
+    "operator": "SkyDemo",
+    "serviceNumber": "TG111",
+    "origin": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "destination": {
+      "code": "MAA",
+      "name": "Chennai",
+      "city": "Chennai"
+    },
+    "scheduledDeparture": "2026-10-10T21:30:00+05:30",
+    "scheduledArrival": "2026-10-10T23:30:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1030,
+    "durationMinutes": 120,
+    "metadata": {
+      "aircraftType": "B737-800",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 21,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "HIGH",
+      "airportCongestionRisk": "HIGH",
+      "historicalAverageDelayMinutes": 24,
+      "historicalCancellationRate": 0.03
+    }
+  },
+  {
+    "id": "FL012",
+    "type": "FLIGHT",
+    "operator": "TravelGuard Air",
+    "serviceNumber": "TG112",
+    "origin": {
+      "code": "MAA",
+      "name": "Chennai",
+      "city": "Chennai"
+    },
+    "destination": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "scheduledDeparture": "2026-10-10T06:45:00+05:30",
+    "scheduledArrival": "2026-10-10T08:50:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1030,
+    "durationMinutes": 125,
+    "metadata": {
+      "aircraftType": "A350",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 6,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "MEDIUM",
+      "airportCongestionRisk": "LOW",
+      "historicalAverageDelayMinutes": 31,
+      "historicalCancellationRate": 0.04
+    }
+  },
+  {
+    "id": "FL013",
+    "type": "FLIGHT",
+    "operator": "Demo Airways",
+    "serviceNumber": "TG113",
+    "origin": {
+      "code": "DEL",
+      "name": "Delhi",
+      "city": "Delhi"
+    },
+    "destination": {
+      "code": "CCU",
+      "name": "Kolkata",
+      "city": "Kolkata"
+    },
+    "scheduledDeparture": "2026-10-10T07:00:00+05:30",
+    "scheduledArrival": "2026-10-10T09:15:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1305,
+    "durationMinutes": 135,
+    "metadata": {
+      "aircraftType": "A320",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 7,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "LOW",
+      "airportCongestionRisk": "MEDIUM",
+      "historicalAverageDelayMinutes": 15,
+      "historicalCancellationRate": 0.01
+    }
+  },
+  {
+    "id": "FL014",
+    "type": "FLIGHT",
+    "operator": "SkyDemo",
+    "serviceNumber": "TG114",
+    "origin": {
+      "code": "CCU",
+      "name": "Kolkata",
+      "city": "Kolkata"
+    },
+    "destination": {
+      "code": "DEL",
+      "name": "Delhi",
+      "city": "Delhi"
+    },
+    "scheduledDeparture": "2026-10-10T08:15:00+05:30",
+    "scheduledArrival": "2026-10-10T10:35:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1305,
+    "durationMinutes": 140,
+    "metadata": {
+      "aircraftType": "A321",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 8,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "HIGH",
+      "airportCongestionRisk": "HIGH",
+      "historicalAverageDelayMinutes": 20,
+      "historicalCancellationRate": 0.02
+    }
+  },
+  {
+    "id": "FL015",
+    "type": "FLIGHT",
+    "operator": "TravelGuard Air",
+    "serviceNumber": "TG115",
+    "origin": {
+      "code": "BLR",
+      "name": "Bengaluru",
+      "city": "Bengaluru"
+    },
+    "destination": {
+      "code": "MAA",
+      "name": "Chennai",
+      "city": "Chennai"
+    },
+    "scheduledDeparture": "2026-10-10T09:30:00+05:30",
+    "scheduledArrival": "2026-10-10T10:35:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 350,
+    "durationMinutes": 65,
+    "metadata": {
+      "aircraftType": "B737-800",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 9,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "MEDIUM",
+      "airportCongestionRisk": "LOW",
+      "historicalAverageDelayMinutes": 8,
+      "historicalCancellationRate": 0.03
+    }
+  },
+  {
+    "id": "FL016",
+    "type": "FLIGHT",
+    "operator": "Demo Airways",
+    "serviceNumber": "TG116",
+    "origin": {
+      "code": "MAA",
+      "name": "Chennai",
+      "city": "Chennai"
+    },
+    "destination": {
+      "code": "BLR",
+      "name": "Bengaluru",
+      "city": "Bengaluru"
+    },
+    "scheduledDeparture": "2026-10-10T10:45:00+05:30",
+    "scheduledArrival": "2026-10-10T11:55:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 350,
+    "durationMinutes": 70,
+    "metadata": {
+      "aircraftType": "A350",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 10,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "LOW",
+      "airportCongestionRisk": "MEDIUM",
+      "historicalAverageDelayMinutes": 12,
+      "historicalCancellationRate": 0.04
+    }
+  },
+  {
+    "id": "FL017",
+    "type": "FLIGHT",
+    "operator": "SkyDemo",
+    "serviceNumber": "TG117",
+    "origin": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "destination": {
+      "code": "PNQ",
+      "name": "Pune",
+      "city": "Pune"
+    },
+    "scheduledDeparture": "2026-10-10T11:00:00+05:30",
+    "scheduledArrival": "2026-10-10T11:55:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 120,
+    "durationMinutes": 55,
+    "metadata": {
+      "aircraftType": "A320",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 11,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "HIGH",
+      "airportCongestionRisk": "HIGH",
+      "historicalAverageDelayMinutes": 18,
+      "historicalCancellationRate": 0.01
+    }
+  },
+  {
+    "id": "FL018",
+    "type": "FLIGHT",
+    "operator": "TravelGuard Air",
+    "serviceNumber": "TG118",
+    "origin": {
+      "code": "PNQ",
+      "name": "Pune",
+      "city": "Pune"
+    },
+    "destination": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "scheduledDeparture": "2026-10-10T13:15:00+05:30",
+    "scheduledArrival": "2026-10-10T14:15:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 120,
+    "durationMinutes": 60,
+    "metadata": {
+      "aircraftType": "A321",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 13,
+      "dayOfWeek": 6,
+      "month": 10,
+      "weatherRisk": "MEDIUM",
+      "airportCongestionRisk": "LOW",
+      "historicalAverageDelayMinutes": 24,
+      "historicalCancellationRate": 0.02
+    }
+  },
+  {
+    "id": "FL019",
+    "type": "FLIGHT",
+    "operator": "Demo Airways",
+    "serviceNumber": "TG119",
+    "origin": {
+      "code": "DEL",
+      "name": "Delhi",
+      "city": "Delhi"
+    },
+    "destination": {
+      "code": "AMD",
+      "name": "Ahmedabad",
+      "city": "Ahmedabad"
+    },
+    "scheduledDeparture": "2026-10-11T15:30:00+05:30",
+    "scheduledArrival": "2026-10-11T17:15:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 945,
+    "durationMinutes": 105,
+    "metadata": {
+      "aircraftType": "B737-800",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 15,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "LOW",
+      "airportCongestionRisk": "MEDIUM",
+      "historicalAverageDelayMinutes": 31,
+      "historicalCancellationRate": 0.03
+    }
+  },
+  {
+    "id": "FL020",
+    "type": "FLIGHT",
+    "operator": "SkyDemo",
+    "serviceNumber": "TG120",
+    "origin": {
+      "code": "AMD",
+      "name": "Ahmedabad",
+      "city": "Ahmedabad"
+    },
+    "destination": {
+      "code": "DEL",
+      "name": "Delhi",
+      "city": "Delhi"
+    },
+    "scheduledDeparture": "2026-10-11T17:45:00+05:30",
+    "scheduledArrival": "2026-10-11T19:35:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 945,
+    "durationMinutes": 110,
+    "metadata": {
+      "aircraftType": "A350",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 17,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "HIGH",
+      "airportCongestionRisk": "HIGH",
+      "historicalAverageDelayMinutes": 15,
+      "historicalCancellationRate": 0.04
+    }
+  },
+  {
+    "id": "FL021",
+    "type": "FLIGHT",
+    "operator": "TravelGuard Air",
+    "serviceNumber": "TG121",
+    "origin": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "destination": {
+      "code": "GOI",
+      "name": "Goa",
+      "city": "Goa"
+    },
+    "scheduledDeparture": "2026-10-11T19:00:00+05:30",
+    "scheduledArrival": "2026-10-11T20:15:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 470,
+    "durationMinutes": 75,
+    "metadata": {
+      "aircraftType": "A320",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 19,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "MEDIUM",
+      "airportCongestionRisk": "LOW",
+      "historicalAverageDelayMinutes": 20,
+      "historicalCancellationRate": 0.01
+    }
+  },
+  {
+    "id": "FL022",
+    "type": "FLIGHT",
+    "operator": "Demo Airways",
+    "serviceNumber": "TG122",
+    "origin": {
+      "code": "GOI",
+      "name": "Goa",
+      "city": "Goa"
+    },
+    "destination": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "scheduledDeparture": "2026-10-11T21:15:00+05:30",
+    "scheduledArrival": "2026-10-11T22:35:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 470,
+    "durationMinutes": 80,
+    "metadata": {
+      "aircraftType": "A321",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 21,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "LOW",
+      "airportCongestionRisk": "MEDIUM",
+      "historicalAverageDelayMinutes": 8,
+      "historicalCancellationRate": 0.02
+    }
+  },
+  {
+    "id": "FL023",
+    "type": "FLIGHT",
+    "operator": "SkyDemo",
+    "serviceNumber": "TG123",
+    "origin": {
+      "code": "BLR",
+      "name": "Bengaluru",
+      "city": "Bengaluru"
+    },
+    "destination": {
+      "code": "HYD",
+      "name": "Hyderabad",
+      "city": "Hyderabad"
+    },
+    "scheduledDeparture": "2026-10-11T06:30:00+05:30",
+    "scheduledArrival": "2026-10-11T07:50:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 570,
+    "durationMinutes": 80,
+    "metadata": {
+      "aircraftType": "B737-800",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 6,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "HIGH",
+      "airportCongestionRisk": "HIGH",
+      "historicalAverageDelayMinutes": 12,
+      "historicalCancellationRate": 0.03
+    }
+  },
+  {
+    "id": "FL024",
+    "type": "FLIGHT",
+    "operator": "TravelGuard Air",
+    "serviceNumber": "TG124",
+    "origin": {
+      "code": "HYD",
+      "name": "Hyderabad",
+      "city": "Hyderabad"
+    },
+    "destination": {
+      "code": "BLR",
+      "name": "Bengaluru",
+      "city": "Bengaluru"
+    },
+    "scheduledDeparture": "2026-10-11T07:45:00+05:30",
+    "scheduledArrival": "2026-10-11T09:10:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 570,
+    "durationMinutes": 85,
+    "metadata": {
+      "aircraftType": "A350",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 7,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "MEDIUM",
+      "airportCongestionRisk": "LOW",
+      "historicalAverageDelayMinutes": 18,
+      "historicalCancellationRate": 0.04
+    }
+  },
+  {
+    "id": "FL025",
+    "type": "FLIGHT",
+    "operator": "Demo Airways",
+    "serviceNumber": "TG125",
+    "origin": {
+      "code": "BLR",
+      "name": "Bengaluru",
+      "city": "Bengaluru"
+    },
+    "destination": {
+      "code": "CCU",
+      "name": "Kolkata",
+      "city": "Kolkata"
+    },
+    "scheduledDeparture": "2026-10-11T08:00:00+05:30",
+    "scheduledArrival": "2026-10-11T10:55:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1870,
+    "durationMinutes": 175,
+    "metadata": {
+      "aircraftType": "A320",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 8,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "LOW",
+      "airportCongestionRisk": "MEDIUM",
+      "historicalAverageDelayMinutes": 24,
+      "historicalCancellationRate": 0.01
+    }
+  },
+  {
+    "id": "FL026",
+    "type": "FLIGHT",
+    "operator": "SkyDemo",
+    "serviceNumber": "TG126",
+    "origin": {
+      "code": "CCU",
+      "name": "Kolkata",
+      "city": "Kolkata"
+    },
+    "destination": {
+      "code": "BLR",
+      "name": "Bengaluru",
+      "city": "Bengaluru"
+    },
+    "scheduledDeparture": "2026-10-11T09:15:00+05:30",
+    "scheduledArrival": "2026-10-11T12:15:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1870,
+    "durationMinutes": 180,
+    "metadata": {
+      "aircraftType": "A321",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 9,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "HIGH",
+      "airportCongestionRisk": "HIGH",
+      "historicalAverageDelayMinutes": 31,
+      "historicalCancellationRate": 0.02
+    }
+  },
+  {
+    "id": "FL027",
+    "type": "FLIGHT",
+    "operator": "TravelGuard Air",
+    "serviceNumber": "TG127",
+    "origin": {
+      "code": "DEL",
+      "name": "Delhi",
+      "city": "Delhi"
+    },
+    "destination": {
+      "code": "COK",
+      "name": "Kochi",
+      "city": "Kochi"
+    },
+    "scheduledDeparture": "2026-10-11T10:30:00+05:30",
+    "scheduledArrival": "2026-10-11T13:40:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 2080,
+    "durationMinutes": 190,
+    "metadata": {
+      "aircraftType": "B737-800",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 10,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "MEDIUM",
+      "airportCongestionRisk": "LOW",
+      "historicalAverageDelayMinutes": 15,
+      "historicalCancellationRate": 0.03
+    }
+  },
+  {
+    "id": "FL028",
+    "type": "FLIGHT",
+    "operator": "Demo Airways",
+    "serviceNumber": "TG128",
+    "origin": {
+      "code": "COK",
+      "name": "Kochi",
+      "city": "Kochi"
+    },
+    "destination": {
+      "code": "DEL",
+      "name": "Delhi",
+      "city": "Delhi"
+    },
+    "scheduledDeparture": "2026-10-11T11:45:00+05:30",
+    "scheduledArrival": "2026-10-11T15:00:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 2080,
+    "durationMinutes": 195,
+    "metadata": {
+      "aircraftType": "A350",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 11,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "LOW",
+      "airportCongestionRisk": "MEDIUM",
+      "historicalAverageDelayMinutes": 20,
+      "historicalCancellationRate": 0.04
+    }
+  },
+  {
+    "id": "FL029",
+    "type": "FLIGHT",
+    "operator": "SkyDemo",
+    "serviceNumber": "TG129",
+    "origin": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "destination": {
+      "code": "COK",
+      "name": "Kochi",
+      "city": "Kochi"
+    },
+    "scheduledDeparture": "2026-10-11T13:00:00+05:30",
+    "scheduledArrival": "2026-10-11T15:35:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1510,
+    "durationMinutes": 155,
+    "metadata": {
+      "aircraftType": "A320",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 13,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "HIGH",
+      "airportCongestionRisk": "HIGH",
+      "historicalAverageDelayMinutes": 8,
+      "historicalCancellationRate": 0.01
+    }
+  },
+  {
+    "id": "FL030",
+    "type": "FLIGHT",
+    "operator": "TravelGuard Air",
+    "serviceNumber": "TG130",
+    "origin": {
+      "code": "COK",
+      "name": "Kochi",
+      "city": "Kochi"
+    },
+    "destination": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "scheduledDeparture": "2026-10-11T15:15:00+05:30",
+    "scheduledArrival": "2026-10-11T17:55:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1510,
+    "durationMinutes": 160,
+    "metadata": {
+      "aircraftType": "A321",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 15,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "MEDIUM",
+      "airportCongestionRisk": "LOW",
+      "historicalAverageDelayMinutes": 12,
+      "historicalCancellationRate": 0.02
+    }
+  },
+  {
+    "id": "FL031",
+    "type": "FLIGHT",
+    "operator": "Demo Airways",
+    "serviceNumber": "TG131",
+    "origin": {
+      "code": "MAA",
+      "name": "Chennai",
+      "city": "Chennai"
+    },
+    "destination": {
+      "code": "HYD",
+      "name": "Hyderabad",
+      "city": "Hyderabad"
+    },
+    "scheduledDeparture": "2026-10-11T17:30:00+05:30",
+    "scheduledArrival": "2026-10-11T18:45:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 520,
+    "durationMinutes": 75,
+    "metadata": {
+      "aircraftType": "B737-800",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 17,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "LOW",
+      "airportCongestionRisk": "MEDIUM",
+      "historicalAverageDelayMinutes": 18,
+      "historicalCancellationRate": 0.03
+    }
+  },
+  {
+    "id": "FL032",
+    "type": "FLIGHT",
+    "operator": "SkyDemo",
+    "serviceNumber": "TG132",
+    "origin": {
+      "code": "HYD",
+      "name": "Hyderabad",
+      "city": "Hyderabad"
+    },
+    "destination": {
+      "code": "MAA",
+      "name": "Chennai",
+      "city": "Chennai"
+    },
+    "scheduledDeparture": "2026-10-11T19:45:00+05:30",
+    "scheduledArrival": "2026-10-11T21:05:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 520,
+    "durationMinutes": 80,
+    "metadata": {
+      "aircraftType": "A350",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 19,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "HIGH",
+      "airportCongestionRisk": "HIGH",
+      "historicalAverageDelayMinutes": 24,
+      "historicalCancellationRate": 0.04
+    }
+  },
+  {
+    "id": "FL033",
+    "type": "FLIGHT",
+    "operator": "TravelGuard Air",
+    "serviceNumber": "TG133",
+    "origin": {
+      "code": "DEL",
+      "name": "Delhi",
+      "city": "Delhi"
+    },
+    "destination": {
+      "code": "GOI",
+      "name": "Goa",
+      "city": "Goa"
+    },
+    "scheduledDeparture": "2026-10-11T21:00:00+05:30",
+    "scheduledArrival": "2026-10-11T23:35:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1500,
+    "durationMinutes": 155,
+    "metadata": {
+      "aircraftType": "A320",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 21,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "MEDIUM",
+      "airportCongestionRisk": "LOW",
+      "historicalAverageDelayMinutes": 31,
+      "historicalCancellationRate": 0.01
+    }
+  },
+  {
+    "id": "FL034",
+    "type": "FLIGHT",
+    "operator": "Demo Airways",
+    "serviceNumber": "TG134",
+    "origin": {
+      "code": "GOI",
+      "name": "Goa",
+      "city": "Goa"
+    },
+    "destination": {
+      "code": "DEL",
+      "name": "Delhi",
+      "city": "Delhi"
+    },
+    "scheduledDeparture": "2026-10-11T06:15:00+05:30",
+    "scheduledArrival": "2026-10-11T08:55:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1500,
+    "durationMinutes": 160,
+    "metadata": {
+      "aircraftType": "A321",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 6,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "LOW",
+      "airportCongestionRisk": "MEDIUM",
+      "historicalAverageDelayMinutes": 15,
+      "historicalCancellationRate": 0.02
+    }
+  },
+  {
+    "id": "FL035",
+    "type": "FLIGHT",
+    "operator": "SkyDemo",
+    "serviceNumber": "TG135",
+    "origin": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "destination": {
+      "code": "AMD",
+      "name": "Ahmedabad",
+      "city": "Ahmedabad"
+    },
+    "scheduledDeparture": "2026-10-11T07:30:00+05:30",
+    "scheduledArrival": "2026-10-11T08:40:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 440,
+    "durationMinutes": 70,
+    "metadata": {
+      "aircraftType": "B737-800",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 7,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "HIGH",
+      "airportCongestionRisk": "HIGH",
+      "historicalAverageDelayMinutes": 20,
+      "historicalCancellationRate": 0.03
+    }
+  },
+  {
+    "id": "FL036",
+    "type": "FLIGHT",
+    "operator": "TravelGuard Air",
+    "serviceNumber": "TG136",
+    "origin": {
+      "code": "AMD",
+      "name": "Ahmedabad",
+      "city": "Ahmedabad"
+    },
+    "destination": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "scheduledDeparture": "2026-10-11T08:45:00+05:30",
+    "scheduledArrival": "2026-10-11T10:00:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 440,
+    "durationMinutes": 75,
+    "metadata": {
+      "aircraftType": "A350",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 8,
+      "dayOfWeek": 7,
+      "month": 10,
+      "weatherRisk": "MEDIUM",
+      "airportCongestionRisk": "LOW",
+      "historicalAverageDelayMinutes": 8,
+      "historicalCancellationRate": 0.04
+    }
+  },
+  {
+    "id": "FL037",
+    "type": "FLIGHT",
+    "operator": "Demo Airways",
+    "serviceNumber": "TG137",
+    "origin": {
+      "code": "CCU",
+      "name": "Kolkata",
+      "city": "Kolkata"
+    },
+    "destination": {
+      "code": "MAA",
+      "name": "Chennai",
+      "city": "Chennai"
+    },
+    "scheduledDeparture": "2026-10-12T09:00:00+05:30",
+    "scheduledArrival": "2026-10-12T11:45:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1670,
+    "durationMinutes": 165,
+    "metadata": {
+      "aircraftType": "A320",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 9,
+      "dayOfWeek": 1,
+      "month": 10,
+      "weatherRisk": "LOW",
+      "airportCongestionRisk": "MEDIUM",
+      "historicalAverageDelayMinutes": 12,
+      "historicalCancellationRate": 0.01
+    }
+  },
+  {
+    "id": "FL038",
+    "type": "FLIGHT",
+    "operator": "SkyDemo",
+    "serviceNumber": "TG138",
+    "origin": {
+      "code": "MAA",
+      "name": "Chennai",
+      "city": "Chennai"
+    },
+    "destination": {
+      "code": "CCU",
+      "name": "Kolkata",
+      "city": "Kolkata"
+    },
+    "scheduledDeparture": "2026-10-12T10:15:00+05:30",
+    "scheduledArrival": "2026-10-12T13:05:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1670,
+    "durationMinutes": 170,
+    "metadata": {
+      "aircraftType": "A321",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 10,
+      "dayOfWeek": 1,
+      "month": 10,
+      "weatherRisk": "HIGH",
+      "airportCongestionRisk": "HIGH",
+      "historicalAverageDelayMinutes": 18,
+      "historicalCancellationRate": 0.02
+    }
+  },
+  {
+    "id": "FL039",
+    "type": "FLIGHT",
+    "operator": "TravelGuard Air",
+    "serviceNumber": "TG139",
+    "origin": {
+      "code": "BLR",
+      "name": "Bengaluru",
+      "city": "Bengaluru"
+    },
+    "destination": {
+      "code": "PNQ",
+      "name": "Pune",
+      "city": "Pune"
+    },
+    "scheduledDeparture": "2026-10-12T11:30:00+05:30",
+    "scheduledArrival": "2026-10-12T13:05:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 735,
+    "durationMinutes": 95,
+    "metadata": {
+      "aircraftType": "B737-800",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 11,
+      "dayOfWeek": 1,
+      "month": 10,
+      "weatherRisk": "MEDIUM",
+      "airportCongestionRisk": "LOW",
+      "historicalAverageDelayMinutes": 24,
+      "historicalCancellationRate": 0.03
+    }
+  },
+  {
+    "id": "FL040",
+    "type": "FLIGHT",
+    "operator": "Demo Airways",
+    "serviceNumber": "TG140",
+    "origin": {
+      "code": "PNQ",
+      "name": "Pune",
+      "city": "Pune"
+    },
+    "destination": {
+      "code": "BLR",
+      "name": "Bengaluru",
+      "city": "Bengaluru"
+    },
+    "scheduledDeparture": "2026-10-12T13:45:00+05:30",
+    "scheduledArrival": "2026-10-12T15:25:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 735,
+    "durationMinutes": 100,
+    "metadata": {
+      "aircraftType": "A350",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 13,
+      "dayOfWeek": 1,
+      "month": 10,
+      "weatherRisk": "LOW",
+      "airportCongestionRisk": "MEDIUM",
+      "historicalAverageDelayMinutes": 31,
+      "historicalCancellationRate": 0.04
+    }
+  },
+  {
+    "id": "FL041",
+    "type": "FLIGHT",
+    "operator": "SkyDemo",
+    "serviceNumber": "TG141",
+    "origin": {
+      "code": "HYD",
+      "name": "Hyderabad",
+      "city": "Hyderabad"
+    },
+    "destination": {
+      "code": "COK",
+      "name": "Kochi",
+      "city": "Kochi"
+    },
+    "scheduledDeparture": "2026-10-12T15:00:00+05:30",
+    "scheduledArrival": "2026-10-12T16:45:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 800,
+    "durationMinutes": 105,
+    "metadata": {
+      "aircraftType": "A320",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 15,
+      "dayOfWeek": 1,
+      "month": 10,
+      "weatherRisk": "HIGH",
+      "airportCongestionRisk": "HIGH",
+      "historicalAverageDelayMinutes": 15,
+      "historicalCancellationRate": 0.01
+    }
+  },
+  {
+    "id": "FL042",
+    "type": "FLIGHT",
+    "operator": "TravelGuard Air",
+    "serviceNumber": "TG142",
+    "origin": {
+      "code": "COK",
+      "name": "Kochi",
+      "city": "Kochi"
+    },
+    "destination": {
+      "code": "HYD",
+      "name": "Hyderabad",
+      "city": "Hyderabad"
+    },
+    "scheduledDeparture": "2026-10-12T17:15:00+05:30",
+    "scheduledArrival": "2026-10-12T19:05:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 800,
+    "durationMinutes": 110,
+    "metadata": {
+      "aircraftType": "A321",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 17,
+      "dayOfWeek": 1,
+      "month": 10,
+      "weatherRisk": "MEDIUM",
+      "airportCongestionRisk": "LOW",
+      "historicalAverageDelayMinutes": 20,
+      "historicalCancellationRate": 0.02
+    }
+  },
+  {
+    "id": "FL043",
+    "type": "FLIGHT",
+    "operator": "Demo Airways",
+    "serviceNumber": "TG143",
+    "origin": {
+      "code": "DEL",
+      "name": "Delhi",
+      "city": "Delhi"
+    },
+    "destination": {
+      "code": "PNQ",
+      "name": "Pune",
+      "city": "Pune"
+    },
+    "scheduledDeparture": "2026-10-12T19:30:00+05:30",
+    "scheduledArrival": "2026-10-12T21:35:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1170,
+    "durationMinutes": 125,
+    "metadata": {
+      "aircraftType": "B737-800",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 19,
+      "dayOfWeek": 1,
+      "month": 10,
+      "weatherRisk": "LOW",
+      "airportCongestionRisk": "MEDIUM",
+      "historicalAverageDelayMinutes": 8,
+      "historicalCancellationRate": 0.03
+    }
+  },
+  {
+    "id": "FL044",
+    "type": "FLIGHT",
+    "operator": "SkyDemo",
+    "serviceNumber": "TG144",
+    "origin": {
+      "code": "PNQ",
+      "name": "Pune",
+      "city": "Pune"
+    },
+    "destination": {
+      "code": "DEL",
+      "name": "Delhi",
+      "city": "Delhi"
+    },
+    "scheduledDeparture": "2026-10-12T21:45:00+05:30",
+    "scheduledArrival": "2026-10-12T23:55:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1170,
+    "durationMinutes": 130,
+    "metadata": {
+      "aircraftType": "A350",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 21,
+      "dayOfWeek": 1,
+      "month": 10,
+      "weatherRisk": "HIGH",
+      "airportCongestionRisk": "HIGH",
+      "historicalAverageDelayMinutes": 12,
+      "historicalCancellationRate": 0.04
+    }
+  },
+  {
+    "id": "FL045",
+    "type": "FLIGHT",
+    "operator": "TravelGuard Air",
+    "serviceNumber": "TG145",
+    "origin": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "destination": {
+      "code": "CCU",
+      "name": "Kolkata",
+      "city": "Kolkata"
+    },
+    "scheduledDeparture": "2026-10-12T06:00:00+05:30",
+    "scheduledArrival": "2026-10-12T08:50:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1660,
+    "durationMinutes": 170,
+    "metadata": {
+      "aircraftType": "A320",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 6,
+      "dayOfWeek": 1,
+      "month": 10,
+      "weatherRisk": "MEDIUM",
+      "airportCongestionRisk": "LOW",
+      "historicalAverageDelayMinutes": 18,
+      "historicalCancellationRate": 0.01
+    }
+  },
+  {
+    "id": "FL046",
+    "type": "FLIGHT",
+    "operator": "Demo Airways",
+    "serviceNumber": "TG146",
+    "origin": {
+      "code": "CCU",
+      "name": "Kolkata",
+      "city": "Kolkata"
+    },
+    "destination": {
+      "code": "BOM",
+      "name": "Mumbai",
+      "city": "Mumbai"
+    },
+    "scheduledDeparture": "2026-10-12T07:15:00+05:30",
+    "scheduledArrival": "2026-10-12T10:10:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1660,
+    "durationMinutes": 175,
+    "metadata": {
+      "aircraftType": "A321",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 7,
+      "dayOfWeek": 1,
+      "month": 10,
+      "weatherRisk": "LOW",
+      "airportCongestionRisk": "MEDIUM",
+      "historicalAverageDelayMinutes": 24,
+      "historicalCancellationRate": 0.02
+    }
+  },
+  {
+    "id": "FL047",
+    "type": "FLIGHT",
+    "operator": "SkyDemo",
+    "serviceNumber": "TG147",
+    "origin": {
+      "code": "AMD",
+      "name": "Ahmedabad",
+      "city": "Ahmedabad"
+    },
+    "destination": {
+      "code": "BLR",
+      "name": "Bengaluru",
+      "city": "Bengaluru"
+    },
+    "scheduledDeparture": "2026-10-12T08:30:00+05:30",
+    "scheduledArrival": "2026-10-12T10:35:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1220,
+    "durationMinutes": 125,
+    "metadata": {
+      "aircraftType": "B737-800",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 8,
+      "dayOfWeek": 1,
+      "month": 10,
+      "weatherRisk": "HIGH",
+      "airportCongestionRisk": "HIGH",
+      "historicalAverageDelayMinutes": 31,
+      "historicalCancellationRate": 0.03
+    }
+  },
+  {
+    "id": "FL048",
+    "type": "FLIGHT",
+    "operator": "TravelGuard Air",
+    "serviceNumber": "TG148",
+    "origin": {
+      "code": "BLR",
+      "name": "Bengaluru",
+      "city": "Bengaluru"
+    },
+    "destination": {
+      "code": "AMD",
+      "name": "Ahmedabad",
+      "city": "Ahmedabad"
+    },
+    "scheduledDeparture": "2026-10-12T09:45:00+05:30",
+    "scheduledArrival": "2026-10-12T11:55:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 1220,
+    "durationMinutes": 130,
+    "metadata": {
+      "aircraftType": "A350",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 9,
+      "dayOfWeek": 1,
+      "month": 10,
+      "weatherRisk": "MEDIUM",
+      "airportCongestionRisk": "LOW",
+      "historicalAverageDelayMinutes": 15,
+      "historicalCancellationRate": 0.04
+    }
+  },
+  {
+    "id": "FL049",
+    "type": "FLIGHT",
+    "operator": "Demo Airways",
+    "serviceNumber": "TG149",
+    "origin": {
+      "code": "MAA",
+      "name": "Chennai",
+      "city": "Chennai"
+    },
+    "destination": {
+      "code": "COK",
+      "name": "Kochi",
+      "city": "Kochi"
+    },
+    "scheduledDeparture": "2026-10-12T10:00:00+05:30",
+    "scheduledArrival": "2026-10-12T11:30:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 690,
+    "durationMinutes": 90,
+    "metadata": {
+      "aircraftType": "A320",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 10,
+      "dayOfWeek": 1,
+      "month": 10,
+      "weatherRisk": "LOW",
+      "airportCongestionRisk": "MEDIUM",
+      "historicalAverageDelayMinutes": 20,
+      "historicalCancellationRate": 0.01
+    }
+  },
+  {
+    "id": "FL050",
+    "type": "FLIGHT",
+    "operator": "SkyDemo",
+    "serviceNumber": "TG150",
+    "origin": {
+      "code": "COK",
+      "name": "Kochi",
+      "city": "Kochi"
+    },
+    "destination": {
+      "code": "MAA",
+      "name": "Chennai",
+      "city": "Chennai"
+    },
+    "scheduledDeparture": "2026-10-12T11:15:00+05:30",
+    "scheduledArrival": "2026-10-12T12:50:00+05:30",
+    "actualDeparture": null,
+    "actualArrival": null,
+    "status": "ON_TIME",
+    "delayMinutes": 0,
+    "distanceKm": 690,
+    "durationMinutes": 95,
+    "metadata": {
+      "aircraftType": "A321",
+      "cabinClasses": [
+        "ECONOMY",
+        "BUSINESS"
+      ],
+      "stops": 0,
+      "baggageIncluded": true
+    },
+    "mlFeatures": {
+      "departureHour": 11,
+      "dayOfWeek": 1,
+      "month": 10,
+      "weatherRisk": "HIGH",
+      "airportCongestionRisk": "HIGH",
+      "historicalAverageDelayMinutes": 8,
+      "historicalCancellationRate": 0.02
+    }
+  }
+]

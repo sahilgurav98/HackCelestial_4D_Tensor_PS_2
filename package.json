@@ -1,0 +1,37 @@
+{
+  "name": "travelguard-data-provider",
+  "version": "1.0.0",
+  "description": "Combined synthetic Train and Flight data provider for TravelGuard AI",
+  "main": "travelguard-data-provider/src/server.js",
+  "scripts": {
+    "test": "jest --runInBand",
+    "start": "node travelguard-data-provider/src/server.js",
+    "dev": "nodemon travelguard-data-provider/src/server.js",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sahilgurav98/HackCelestial_4D_Tensor_PS_2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sahilgurav98/HackCelestial_4D_Tensor_PS_2/issues"
+  },
+  "homepage": "https://github.com/sahilgurav98/HackCelestial_4D_Tensor_PS_2#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.4",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "jest": "^30.5.2",
+    "nodemon": "^3.1.14",
+    "supertest": "^7.3.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
